@@ -1,6 +1,6 @@
 import express from 'express';
 const router = express.Router();
-
+let users= [];
 router.post('/login', (req,res) => {
 
     //1
@@ -15,9 +15,17 @@ router.post('/login', (req,res) => {
     })
 })
 
-router.get('/register', (req,res) => {
-
+router.post('/register', async(req,res) => {
+    const name = req.body.fname +' '+ req.body.lname;
+    const email=req.body.email;
+    const user ={name:name,email:email}
+    users.push(
+        user
+    )
+    return res.status(200).json({
+        users:users       
+    })
 })
 
-//module.exports = router;
+
 export default router;
