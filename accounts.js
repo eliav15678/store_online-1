@@ -16,8 +16,6 @@ router.post('/login', (req,res) => {
 })
 
 router.post('/register', async(req,res) => {
-    const name = req.body.fname +' '+ req.body.lname;
-    const email=req.body.email;
     const user ={name:name,email:email}
     users.push(
         user
